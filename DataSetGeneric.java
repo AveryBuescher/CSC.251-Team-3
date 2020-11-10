@@ -52,41 +52,44 @@ public class DataSetGeneric<E extends Measurable> extends ArrayList<E> {
         List<E> originalList = getList();
         List<E> sortedList = new ArrayList<>();
         sortedList.addAll(originalList);
-        mergeSort(sortedList);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(sortedList);
         return sortedList;
     }
 
-    public void mergeSort(List<E> list) {
-        int size = list.size();
-        if (size > 1) {
-            int half = size / 2;
-            List<E> firstHalf = new ArrayList<>(list.subList(0, half));
-            mergeSort(firstHalf);
+    public class MergeSort {
+        public void mergeSort(List<E> list) {
+            int size = list.size();
+            if (size > 1) {
+                int half = size / 2;
+                List<E> firstHalf = new ArrayList<>(list.subList(0, half));
+                mergeSort(firstHalf);
 
-            List<E> secondHalf = new ArrayList<>(list.subList(half, size));
-            mergeSort(secondHalf);
+                List<E> secondHalf = new ArrayList<>(list.subList(half, size));
+                mergeSort(secondHalf);
 
-            merge(firstHalf, secondHalf, list);
+                merge(firstHalf, secondHalf, list);
+            }
         }
-    }
 
-    public void merge(List<E> list1, List<E> list2, List<E> temp) {
-        int l1size = list1.size();
-        int l2size = list2.size();
-        int current1 = 0;
-        int current2 = 0;
-        int current3 = 0;
+        public void merge(List<E> list1, List<E> list2, List<E> temp) {
+            int l1size = list1.size();
+            int l2size = list2.size();
+            int current1 = 0;
+            int current2 = 0;
+            int current3 = 0;
 
-        while (current1 < l1size && current2 < l2size) {
-            if (list1.get(current1).getMeasure() < list2.get(current2).getMeasure())
+            while (current1 < l1size && current2 < l2size) {
+                if (list1.get(current1).getMeasure() < list2.get(current2).getMeasure())
+                    temp.set(current3++, list1.get(current1++));
+                else
+                    temp.set(current3++, list2.get(current2++));
+            }
+            while (current1 < list1.size())
                 temp.set(current3++, list1.get(current1++));
-            else
+            while (current2 < list2.size())
                 temp.set(current3++, list2.get(current2++));
         }
-        while (current1 < list1.size())
-            temp.set(current3++, list1.get(current1++));
-        while (current2 < list2.size())
-            temp.set(current3++, list2.get(current2++));
     }
 
     @Override
