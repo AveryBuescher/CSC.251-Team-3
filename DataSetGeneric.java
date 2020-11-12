@@ -85,9 +85,9 @@ public class DataSetGeneric<E extends Measurable> extends ArrayList<E> {
                 else
                     temp.set(current3++, list2.get(current2++));
             }
-            while (current1 < list1.size())
+            while (current1 < l1size)
                 temp.set(current3++, list1.get(current1++));
-            while (current2 < list2.size())
+            while (current2 < l2size)
                 temp.set(current3++, list2.get(current2++));
         }
     }
