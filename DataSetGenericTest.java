@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Tests {
+public class DataSetGenericTest {
     static final MeasuresToTest small = new MeasuresToTest(1, "small");
     static final MeasuresToTest medium = new MeasuresToTest(2, "medium");
     static final MeasuresToTest large = new MeasuresToTest(3, "large");
@@ -12,7 +12,7 @@ public class Tests {
     static final Employee commander = new Employee("Commander", 10);
 
     @Test
-    public void oneCommanderRiker() {
+    public void oneCommanderRikerTest() {
         DataSetGeneric<Employee> toTheBridge = new DataSetGeneric<>();
         toTheBridge.add(numberOne);
         toTheBridge.add(commander);
@@ -26,7 +26,7 @@ public class Tests {
     }
 
     @Test
-    public void smallMedLarge() {
+    public void smallMedLargeTest() {
         DataSetGeneric<MeasuresToTest> test1 = new DataSetGeneric<>();
         test1.add(small);
         test1.add(medium);
@@ -40,7 +40,7 @@ public class Tests {
     }
 
     @Test
-    public void smallLargeMedium() {
+    public void smallLargeMediumTest() {
         DataSetGeneric<MeasuresToTest> test2 = new DataSetGeneric<>();
         test2.add(small);
         test2.add(large);
@@ -54,7 +54,7 @@ public class Tests {
     }
 
     @Test
-    public void mediumSmallLarge() {
+    public void mediumSmallLargeTest() {
         DataSetGeneric<MeasuresToTest> test3 = new DataSetGeneric<>();
         test3.add(medium);
         test3.add(small);
@@ -68,7 +68,7 @@ public class Tests {
     }
 
     @Test
-    public void mediumLargeSmall() {
+    public void mediumLargeSmallTest() {
         DataSetGeneric<MeasuresToTest> test4 = new DataSetGeneric<>();
         test4.add(medium);
         test4.add(large);
@@ -82,7 +82,7 @@ public class Tests {
     }
 
     @Test
-    public void largeSmallMedium() {
+    public void largeSmallMediumTest() {
         DataSetGeneric<MeasuresToTest> test5 = new DataSetGeneric<>();
         test5.add(large);
         test5.add(small);
@@ -96,7 +96,7 @@ public class Tests {
     }
 
     @Test
-    public void largeMediumSmall() {
+    public void largeMediumSmallTest() {
         DataSetGeneric<MeasuresToTest> test6 = new DataSetGeneric<>();
         test6.add(large);
         test6.add(medium);
