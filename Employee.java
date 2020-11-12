@@ -3,8 +3,8 @@ public class Employee implements Measurable{
     private String name;
 
     public Employee(String name, int Salary) {
-        this.name = "";
-        this.salary = 0;
+        this.name = name;
+        this.salary = Salary;
     }
 
     public void setSalary(long salary) {
